@@ -14,18 +14,21 @@ def openCSVFile(f):
     return csv_dict
 
 
-def summarizeCSV(csv_dict, num_rows_to_summarize=1, separator='='):
+def summarizeCSV(csv_dict, num_rows_to_summarize=1, separator=' = '):
     """Generate a view of each column in a csv file printed line by line:
 
-    fruit,count
-    apple,2
+fruit,count
+apple,2
 
-    will be printed as:
+will be printed as:
 
-    fruit = apple
-    count = 2
+fruit = apple
+count = 2
 
-    """
+*separator* changes what is printed to separate the row name from the variable.
+
+*num_rows_to_summarize* is the number of rows from the csv you want to print out
+"""
     num_rows_to_summarize = 2 + num_rows_to_summarize
     if sys.stdout.isatty():
         hl_on  = """\033[7m\033[31m"""
@@ -38,7 +41,7 @@ def summarizeCSV(csv_dict, num_rows_to_summarize=1, separator='='):
             break
         else:
             for item in row:
-                l = (f'{item} {separator} {hl_on}{row[item]}{hl_off}')
+                l = (f'{item}{separator}{hl_on}{row[item]}{hl_off}')
                 print(l)
             logging.debug(f"""line number of csv: {csv_dict.line_num}""")
             print()
