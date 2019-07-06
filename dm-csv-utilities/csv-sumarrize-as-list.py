@@ -4,7 +4,7 @@ import os
 import sys
 import csv
 import logging
-from dmcsv import openCSVFile, summarizeCSV
+from csvdm import openCSVFile, summarizeCSV
 
 
 def main():
