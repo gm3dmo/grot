@@ -13,7 +13,7 @@ def main():
 
   f = sys.argv[1]
   csv_dict = openCSVFile(f)
-  summarizeCSV(csv_dict)
+  summarizeCSV(csv_dict, num_rows_to_summarize=1)
 
 
 if __name__ == "__main__":
