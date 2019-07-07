@@ -14,7 +14,7 @@ def main():
     title_string = f"""Pandas Profiling Summary for: {f}"""
     output_file  = 'test.html'
 
-    profile = df.profile_report(title=title_string')
+    profile = df.profile_report(title=title_string)
     profile.to_file(output_file=output_file)
     pandas_profiling.ProfileReport(df)
 
