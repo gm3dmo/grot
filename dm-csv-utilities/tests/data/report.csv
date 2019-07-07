@@ -1,7 +1,7 @@
-LastName,FirstName,Membership, Episodes,Vehicle
-Smith,Hannibal,Confirmed,140,cadges a lift with the others
-Peck,Templeton, Confirmed,130,Corvette
-Baracas,BA,Confirmed, 102,GMC Van
-Murdoch,HowlingMad,Unconfirmed,100,Helicopter
-Allen,Amy,Unconfirmed,24,unkown
-
+LastName,FirstName,Membership,Episodes
+Smith,Hannibal,Confirmed,140
+Peck,Templeton, Confirmed,130
+Baracas,BA,Confirmed,102
+Murdoch,HowlingMad,Unconfirmed,100
+Allen,Amy,Unconfirmed,24
+Decker,Frank,Not a Member,30
