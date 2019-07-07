@@ -1,8 +1,7 @@
-Day,Quantity,Person
-Monday,1,Ann
-Tuesday,2,Bob
-Wednesday,3,Charles
-Thursday,4,David
-Friday,5,Edward
-Saturday,6,Fred
-Sunday,7,Gina
+LastName,FirstName,Membership, Episodes,Vehicle
+Smith,Hannibal,Confirmed,140,cadges a lift with the others
+Peck,Templeton, Confirmed,130,Corvette
+Baracas,BA,Confirmed, 102,GMC Van
+Murdoch,HowlingMad,Unconfirmed,100,Helicopter
+Allen,Amy,Unconfirmed,24,unkown
+
