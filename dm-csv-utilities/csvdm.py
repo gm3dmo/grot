@@ -8,13 +8,13 @@ import logging
 
 def openCSVFile(f):
     csv_dict = csv.DictReader(open(f))
-    #logging.debug(dir(csv_dict))
+    # logging.debug(dir(csv_dict))
     logging.debug(f"""CSV Dialect: {csv_dict.dialect}""")
     logging.debug(f"""Field names: {csv_dict.fieldnames}""")
     return csv_dict
 
 
-def summarizeCSV(csv_dict, num_rows_to_summarize=1, separator=' = ', scramble=True):
+def summarizeCSV(csv_dict, num_rows_to_summarize=1, separator=" = ", mask_values=False):
     """Generate a view of each column in a csv file printed line by line:
 
 fruit,count
@@ -27,11 +27,11 @@ count = 2
 
 *separator* changes what is printed to separate the row name from the variable.
 
-*num_rows_to_summarize* is the number of rows from the csv you want to print out
+*num_rows_to_summarize* is the number of rows from csv file to print out.
 """
     num_rows_to_summarize = 2 + num_rows_to_summarize
     if sys.stdout.isatty():
-        hl_on  = """\033[7m\033[31m"""
+        hl_on = """\033[7m\033[31m"""
         hl_off = """\033[0m')"""
     else:
         hl_on = ""
@@ -40,30 +40,30 @@ count = 2
         if csv_dict.line_num >= num_rows_to_summarize:
             break
         else:
-            if scramble == True:
-                things_to_scramble = [ 'Day' ]
-                row = scrambleValues(things_to_scramble, row)
+            if mask_values is True:
+                columns_to_mask = ["LastName"]
+                row = maskValues(columns_to_mask, row)
             for item in row:
-                l = (f'{item}{separator}{hl_on}{row[item]}{hl_off}')
+                l = f"{item}{separator}{hl_on}{row[item]}{hl_off}"
                 print(l)
             logging.debug(f"""line number of csv: {csv_dict.line_num}""")
             print()
 
 
 def lowercaseList(list):
-     """convert the items in a list to lowercase"""
-     return [x.lower() for x in list]
+    """Convert the items in a list to lowercase."""
+    return [x.lower() for x in list]
 
 
-def scrambleValues(columns_to_scramble, row, replacement_value='*****'):
-    """Takes a list of column headings that need to be scrambled and replaces the valued in them with """
-    logging.debug(f"scrambling: {columns_to_scramble}")
-    columns_to_scramble = lowercaseList(columns_to_scramble)
-    logging.debug(columns_to_scramble)
+def maskValues(columns_to_mask, row, mask_string="*****"):
+    """Takes a list of column headings that need to be masked and replaces the valued in them with the value in *mask_string*"""
+    logging.debug(f"Masking: {columns_to_mask}")
+    columns_to_mask = lowercaseList(columns_to_mask)
+    logging.debug(columns_to_mask)
     for column in row:
-        if column.lower() in columns_to_scramble:
-            row[column]  = replacement_value
-            logging.debug(f"scrambling {column}")
+        if column.lower() in columns_to_mask:
+            row[column] = replacement_value
+            logging.debug(f"masking: {column}")
     return row
 
 
