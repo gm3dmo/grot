@@ -7,8 +7,8 @@ import logging
 
 
 def openCSVFile(f):
+    """Return a file as a csv dictionary."""
     csv_dict = csv.DictReader(open(f))
-    # logging.debug(dir(csv_dict))
     logging.debug(f"""CSV Dialect: {csv_dict.dialect}""")
     logging.debug(f"""Field names: {csv_dict.fieldnames}""")
     return csv_dict
