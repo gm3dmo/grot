@@ -4,6 +4,20 @@ import os
 import sys
 import csv
 import logging
+import datetime
+
+
+def  string_to_date(s_date, pattern):
+    """Return a datetime object from a string:
+d = '01-JAN-2001'
+e = '02-02-2002'
+
+d_date = string_to_date(d, '%d-%b-%Y')
+e_date = string_to_date(e, ')%d-%m-%Y')
+
+2001-01-01 00:00:00
+2002-02-02 00:00:00 """
+    return datetime.datetime.strptime(s_date, pattern)
 
 
 def openCSVFile(f):
