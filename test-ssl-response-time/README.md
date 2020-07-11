@@ -1,10 +1,10 @@
 # Testing SSL Response Time
-We wanted to test the response time of a https server with and without an intermediate certificate.
+Goal: To test the response time of a https server with and without an intermediate certificate.
 
 ## Method
-1. Use ```curl```  and the ```-w``` flag to gather stats about a sequence of test runs to measure ssl performance
-2. Store the results in a csv
-3. Run pandas against the results to generate a summary
+1. Use ```curl```  and the ```-w``` flag to gather stats about a sequence of test runs to measure ssl performance.
+2. Store the results in a csv.
+3. Run pandas against the results to generate a summary.
 
 ## Scripts
 ### Generate the test data using curl:
@@ -106,3 +106,6 @@ prod,0,0.016034,0.098340
 prod,0,0.019052,0.106298
 prod,0,0.015832,0.101168
 ```
+
+
+[1]: https://curl.haxx.se/docs/manpage.html "Curl documenation"
