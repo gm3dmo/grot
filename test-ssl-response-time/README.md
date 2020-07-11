@@ -8,8 +8,9 @@ Goal: To test the response time of a https server with and without an intermedia
 
 ## Scripts
 ### Generate the test data using curl:
+This little test uses [curl][1]'s `-w` option to display information about timing.
+
 ```
-# this little test uses -w options for curl, see man pages for info
 url=${1:-https://cmp.oxenfor.de}
 test_began=$(date +%s)
 echo "url,test_began,ssl_verify_result,time_connect,time_appconnect"
