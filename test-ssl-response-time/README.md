@@ -1,4 +1,4 @@
-# Testing SSL Response Time
+# Testing SSL response time with and without intermediate certificate
 Goal: To test the response time of a https server both with and without an intermediate certificate.
 
 ## Method
