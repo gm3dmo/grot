@@ -16,7 +16,7 @@ test_began=$(date +%s)
 echo "url,test_began,ssl_verify_result,time_connect,time_appconnect"
 seq 10 | xargs -I@ -n1 curl -kso /dev/null -w "${url},${test_began},%{ssl_verify_result},%{time_connect},%{time_appconnect}\n" ${url}
 ```
-will output:
+the ouput look like this:
 ```
 url,test_began,ssl_verify_result,time_connect,time_appconnect
 https://cmp.oxenfor.de,1523545043,0,0.024777,0.085624
@@ -32,7 +32,7 @@ https://cmp.oxenfor.de,1523545043,0,0.018849,0.067029
 ```
 
 ## Report on the test data using pandas in python
-Just about this much python:
+Use [pandas][2] to get a summary of the data captured above.
 
 ```#!/usr/bin/env python
 
@@ -60,8 +60,6 @@ if __name__ == "__main__":
     main()
 ```
     
-
-run against a file containing the csv of the output above will give you a report summarising the response times:
 
 ```
 $ python test.py x.csv
@@ -110,3 +108,4 @@ prod,0,0.015832,0.101168
 
 
 [1]: https://curl.haxx.se/docs/manpage.html "Curl documenation"
+[2]: https://pandas.pydata.org/ "Pandas"
