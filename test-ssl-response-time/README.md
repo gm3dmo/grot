@@ -1,5 +1,5 @@
 # Testing SSL Response Time
-Goal: To test the response time of a https server with and without an intermediate certificate.
+Goal: To test the response time of a https server both with and without an intermediate certificate.
 
 ## Method
 1. Use ```curl```  and the ```-w``` flag to gather stats about a sequence of test runs to measure ssl performance.
@@ -8,7 +8,7 @@ Goal: To test the response time of a https server with and without an intermedia
 
 ## Scripts
 ### Generate the test data using curl:
-This little test uses [curl][1]'s `-w` option to display information about timing.
+This test uses [curl][1]'s `-w` option to record information about the timings of parts of the connection.
 
 ```
 url=${1:-https://cmp.oxenfor.de}
@@ -77,7 +77,7 @@ https://cmp.oxenfor.de  0.078074  0.086326  0.101792  0.106885
 https://www.google.com  0.085488  0.089999  0.107708  0.109029
 ```
 
-## Results we found on a production system
+## Results 
 ### Without INT
 ```
 prod,0,0.082918,0.264459
